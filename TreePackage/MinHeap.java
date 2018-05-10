@@ -49,7 +49,7 @@ public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterfac
 	}
 	
 	@Override
-	public T remove() {
+	public T removeMin() {
 		if (size == 0) {
 			throw new java.util.NoSuchElementException("Heap is empty.");
 		}
@@ -69,6 +69,7 @@ public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterfac
 	 * @param list*/
 	public void getKthSmallest(int[] list) {
 		// create heap from list
+		
 		
 		// sort heap
 		
@@ -106,7 +107,7 @@ public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterfac
 		return size == 0;
 	}
 	
-	public int size() {
+	public int getSize() {
 		return size;
 	}
 	
