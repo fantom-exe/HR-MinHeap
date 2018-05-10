@@ -1,5 +1,7 @@
 package TreePackage;
 
+import java.util.List;
+
 public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterface<T> {
 	private T[] heap;
 	private int size;
@@ -50,9 +52,9 @@ public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterfac
 	
 	@Override
 	public T removeMin() {
-		if (size == 0) {
+		if (size == 0)
 			throw new java.util.NoSuchElementException("Heap is empty.");
-		}
+		
 		T removed = heap[1];
 		heap[1] = heap[size];
 		heap[size] = null;
@@ -64,16 +66,30 @@ public class MinHeap<T extends Comparable<? super T>> implements MinHeapInterfac
 		return removed;
 	}
 	
+	@Override
+	public T getMin() {
+		if (size == 0)
+			throw new java.util.NoSuchElementException("Heap is empty.");
+		
+		return heap[1];
+	}
+	
 	/** Helper method that retrieves the kth smallest item
 	 * @return Print the kth smallest object in the heap
-	 * @param list*/
-	public void getKthSmallest(int[] list) {
+	 * @param list array of 50 random integers
+	 * @param k    order of the smallest number in the heap
+	 */
+	public void getKthSmallest(List<T> list, int k) {
 		// create heap from list
+		for(int i = 0; i < list.size(); i++) {
+			add(list.get(i));
+		}
 		
-		
-		// sort heap
-		
-		//
+		// print kth smallest integer
+		for(int i = 0; i < k-1; i++) {
+			removeMin();
+		}
+		System.out.println("\n" + getMin());
 	}
 	
 	/**
